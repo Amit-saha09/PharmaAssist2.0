@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PharmaAssist | Admins Management</title>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--navbar-->
+    @RenderPage("~/Views/Admin/AdminNavbar.cshtml")
+    <!--/navbar-->
+    <div class="container-fluid" style="padding-top:2vh">
+        <div class="form-floating">
+            <input type="text" class="form-control" id="srchBynameTB" placeholder="Admin Name">
+            <label for="floatingInput">Search by Admin Name</label>
+        </div>
+        <br />
+        <div class="container-fluid" align="center"><button type="button" class="btn btn-danger">Print</button></div>
+        <br />
+        <table class="table table-success table-striped" >
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td></td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
