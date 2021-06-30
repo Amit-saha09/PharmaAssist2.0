@@ -29,9 +29,11 @@ namespace PharmaAssist2._0.Models
         public DbSet<ProblemComment> ProblemComments { get; set; }
         public DbSet<ProblemPost> ProblemPosts { get; set; }
         public DbSet<Product> Products { get; set; }
+
         public DbSet<Slot> Slots { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Zone> Zones { get; set; }
+        public DbSet<Specialist> Specialists { get; set; }
 
 
     }

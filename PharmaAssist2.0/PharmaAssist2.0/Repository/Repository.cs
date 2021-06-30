@@ -33,7 +33,7 @@ namespace PharmaAssist2._0.Repository
 
         public void Insert(T entity)
         {
-            this.contex.Set<T>().Find(entity);
+            this.contex.Set<T>().Add(entity);
             this.contex.SaveChanges();
         }
 
