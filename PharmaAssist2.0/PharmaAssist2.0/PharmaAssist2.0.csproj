@@ -146,6 +146,18 @@
     <Compile Include="Migrations\202106300558316_test1.designer.cs">
       <DependentUpon>202106300558316_test1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106302037311_posttitle.cs" />
+    <Compile Include="Migrations\202106302037311_posttitle.designer.cs">
+      <DependentUpon>202106302037311_posttitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106302115335_thik.cs" />
+    <Compile Include="Migrations\202106302115335_thik.designer.cs">
+      <DependentUpon>202106302115335_thik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106302116421_r8.cs" />
+    <Compile Include="Migrations\202106302116421_r8.designer.cs">
+      <DependentUpon>202106302116421_r8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -158,6 +170,7 @@
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\ModelView\DoctorSpecialist.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\PharmaAssistDB.cs" />
@@ -346,12 +359,15 @@
     <Content Include="Views\Doctor\Index.cshtml" />
     <Content Include="Views\Doctor\Details.cshtml" />
     <Content Include="Views\Doctor\Edit.cshtml" />
-    <Content Include="Views\Doctor\Create.cshtml" />
     <Content Include="Views\Login\Registration.cshtml" />
+    <Content Include="Views\Doctor\Create.cshtml" />
+    <Content Include="Views\BlogPost\Index.cshtml" />
+    <Content Include="Views\BlogPost\Create.cshtml" />
+    <Content Include="Views\BlogPost\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BlogPost\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -373,6 +389,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106300558316_test1.resx">
       <DependentUpon>202106300558316_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106302037311_posttitle.resx">
+      <DependentUpon>202106302037311_posttitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106302115335_thik.resx">
+      <DependentUpon>202106302115335_thik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106302116421_r8.resx">
+      <DependentUpon>202106302116421_r8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

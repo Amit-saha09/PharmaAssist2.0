@@ -84,7 +84,9 @@
         <div class="card" style="width: 18rem;">
             <img src="@Url.Content(item.Image)" class="card-img-top" alt="DoctorImage">
             <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Doctor.Name)</h5>
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Doctor.Name)</h4>
+                <br />
+                <h6 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h6>
                 <p class="card-text"> @Html.DisplayFor(modelItem => item.Description) </p>
                 <a href="/Doctor/Details/@item.Id" class="btn btn-primary">Details</a>
             </div>

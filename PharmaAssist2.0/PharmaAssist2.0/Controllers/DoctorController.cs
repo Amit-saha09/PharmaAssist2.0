@@ -1,4 +1,5 @@
 ﻿using PharmaAssist2._0.Models;
+using PharmaAssist2._0.Models.ModelView;
 using PharmaAssist2._0.Repository;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,16 @@ namespace PharmaAssist2._0.Controllers
         }
         public ActionResult Create()
         {
+            SpecialistRepository db = new SpecialistRepository();
+            Doctor p = new Doctor();
+           
+            DoctorSpecialist combodata = new DoctorSpecialist();
+            combodata.Doctor = p;
+            combodata.Specialists = db.GetAll();
+            
+            return View(combodata);
 
 
-            return View();
 
         }
 
@@ -51,9 +59,9 @@ namespace PharmaAssist2._0.Controllers
             var log = new LoginRepository();
             Login lo = new Login();
 
-            lo = log.Getthat(ViewData["Email"].ToString());
+            lo = log.Getthat(Session["regemail"].ToString());
             doc.LoginId = lo.Id;
-            doc.Email = ViewData["Email"].ToString();
+            doc.Email = Session["regemail"].ToString();
             contex.Insert(doc);
             return RedirectToAction("Index");
 
