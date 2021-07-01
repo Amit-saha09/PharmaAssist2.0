@@ -12,5 +12,7 @@ namespace PharmaAssist2._0.Repository
         {
             return this.contex.BlogPosts.Where(x => x.DoctorId == Id).ToList();
         }
+
+        
     }
 }

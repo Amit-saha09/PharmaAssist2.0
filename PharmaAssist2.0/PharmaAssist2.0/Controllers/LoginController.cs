@@ -33,7 +33,7 @@ namespace PharmaAssist2._0.Controllers
                 {
                     contex.Insert(P);
                     Session["regemail"] = P.Email.ToString();
-                    return RedirectToAction("Create", "Doctor", new { area = "" }); ;
+                    return RedirectToAction("Create", "Doctor", new { area = "" }); 
                 }
                 else if (P.Type == "Consumer")
                 {

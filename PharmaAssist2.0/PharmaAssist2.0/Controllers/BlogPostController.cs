@@ -42,6 +42,37 @@ namespace PharmaAssist2._0.Controllers
             return RedirectToAction("Index");
             
         }
+        public ActionResult Edit(int id)
+        {
+
+            
+            var q = new BlogPost();
+            q = contex.Get(id);
+            return View(q);
+
+        }
+        [HttpPost]
+        public ActionResult Edit(BlogPost bp)
+        {
+            Session["email"] = "doctor1@gmail.com";
+            string filename = Path.GetFileNameWithoutExtension(bp.Imagefile.FileName);
+            string extention = Path.GetExtension(bp.Imagefile.FileName);
+            filename = filename + DateTime.Now.ToString("yyssmmfff") + extention;
+            bp.Image = "~/Image/" + filename;
+            filename = Path.Combine(Server.MapPath("~/Image/"), filename);
+            bp.Imagefile.SaveAs(filename);
+
+            var log = new DoctorRepository();
+            Doctor lo = new Doctor();
+
+            lo = log.Getbyemail(Session["email"].ToString());
+            bp.DoctorId = lo.Id;
+
+            contex.Update(bp);
+            return RedirectToAction("Index");
+
+
+        }
 
         public ActionResult Details(int id)
         {
@@ -49,6 +80,21 @@ namespace PharmaAssist2._0.Controllers
            
             return View(contex.Get(id));
         }
+
+        public ActionResult Delete(int id)
+        {
+
+
+            return View(contex.Get(id));
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult ConfirmDelete(int id)
+        {
+
+            contex.Delete(id);
+            return RedirectToAction("Index", "Doctor", new { area = "" });
+        }
+
 
     }
 }
