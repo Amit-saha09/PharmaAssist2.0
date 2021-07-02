@@ -22,6 +22,15 @@ namespace PharmaAssist2._0.Repository
             return p;
 
         }
+
+        public void UpdateLoginStatus(int id, int status)
+        {
+            Login user = this.contex.Logins.Where(x => x.Id == id).FirstOrDefault();
+
+            user.LoginStatus = status;
+
+            this.Update(user);
+        }
     }
 }
     

@@ -27,6 +27,21 @@ namespace PharmaAssist2._0.Controllers
         }
 
         [HttpGet]
+        public ActionResult ApproveLoginAdmin(int id)
+        {
+            LoginRepository lr = new LoginRepository();
+            lr.UpdateLoginStatus(id, 1);
+            return RedirectToAction("AdminsManagement");
+        }
+
+        public ActionResult RejectLoginAdmin(int id)
+        {
+            LoginRepository lr = new LoginRepository();
+            lr.UpdateLoginStatus(id, 2);
+            return RedirectToAction("AdminsManagement");
+        }
+
+        [HttpGet]
         public ActionResult GetAdminsByName(string id)
         {
             AdminRepository ar = new AdminRepository();

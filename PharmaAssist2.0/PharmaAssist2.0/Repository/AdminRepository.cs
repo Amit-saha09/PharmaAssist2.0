@@ -12,5 +12,6 @@ namespace PharmaAssist2._0.Repository
         {
             return this.contex.Admins.Where(x => x.Name.Contains(name)).ToList();
         }
+
     }
 }
