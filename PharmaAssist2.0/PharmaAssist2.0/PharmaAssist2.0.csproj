@@ -158,6 +158,10 @@
     <Compile Include="Migrations\202106302116421_r8.designer.cs">
       <DependentUpon>202106302116421_r8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107021348461_login-admin.cs" />
+    <Compile Include="Migrations\202107021348461_login-admin.designer.cs">
+      <DependentUpon>202107021348461_login-admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -400,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106302116421_r8.resx">
       <DependentUpon>202106302116421_r8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107021348461_login-admin.resx">
+      <DependentUpon>202107021348461_login-admin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
