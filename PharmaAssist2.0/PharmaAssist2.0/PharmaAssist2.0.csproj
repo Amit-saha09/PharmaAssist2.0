@@ -192,6 +192,7 @@
     <Compile Include="Repository\DoctorRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repository\ManagerRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\SpecialistRepository.cs" />
   </ItemGroup>
@@ -415,6 +416,8 @@
     <Content Include="webfonts\fa-brands-400.woff" />
     <Content Include="webfonts\fa-brands-400.ttf" />
     <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="Views\Admin\ManagersManagement.cshtml" />
+    <Content Include="Views\Admin\DoctorsManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
