@@ -17,6 +17,10 @@ namespace PharmaAssist2._0.Models
         [Required]
         public string Type { get; set; }
 
+        public int  RegistrationStatus { get; set; }
+
+        public int LoginStatus { get; set; }
+
         public virtual ICollection<Manager> Managers { get; set; }
         public virtual ICollection<Admin> Admins { get; set; }
         public virtual ICollection<Doctor> Doctors { get; set; }
