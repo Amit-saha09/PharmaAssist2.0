@@ -55,7 +55,102 @@ namespace PharmaAssist2._0.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            if (Session["logged_id"] == null || Session["logged_type"] == null)
+            {
+                return View();
+            }
+            else
+            {
+                if (Session["logged_type"].Equals("Admin"))
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                /* Redirect To Pages as per user type
+                else if (Session["logged_type"].Equals("Manager"))
+                {
+                    // return RedirectToAction("Method_Name_Here", "Manager");
+                }
+                else if (Session["logged_type"].Equals("Doctor"))
+                {
+                    // return RedirectToAction("Method_Name_Here", "Doctor");
+                }
+                else if (Session["logged_type"].Equals("Deliveryman"))
+                {
+                    // return RedirectToAction("Method_Name_Here", "Deliveryman");
+                }
+                else if (Session["logged_type"].Equals("Consumer"))
+                {
+                    // return RedirectToAction("Method_Name_Here", "Consumer");
+                }
+                */
+                else
+                {
+                    Session.Clear();
+                    Session.Abandon();
+                    TempData["error"] = "Login Restricted! Contact admin";
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Index(Login user)
+        {
+            LoginRepository lr = new LoginRepository();
+
+            var userFromDB = lr.GetUser(user);
+
+
+
+            if (userFromDB != null)
+            {
+                if(userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                {
+                    Session["logged_id"] = userFromDB.Id;
+                    Session["logged_type"] = userFromDB.Type;
+
+                    if (Session["logged_type"].Equals("Admin") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    /* Redirect To Pages as per user type
+                    else if (Session["logged_type"].Equals("Manager") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    {
+                        // return RedirectToAction("Method_Name_Here", "Manager");
+                    }
+                    else if (Session["logged_type"].Equals("Doctor") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    {
+                        // return RedirectToAction("Method_Name_Here", "Doctor");
+                    }
+                    else if (Session["logged_type"].Equals("Deliveryman") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    {
+                        // return RedirectToAction("Method_Name_Here", "Deliveryman");
+                    }
+                    else if (Session["logged_type"].Equals("Consumer") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    {
+                        // return RedirectToAction("Method_Name_Here", "Consumer");
+                    }
+                    */
+                    else
+                    {
+                        Session.Clear();
+                        Session.Abandon();
+                        TempData["error"] = "Login Restricted! Contact admin";
+                        return RedirectToAction("Index", "Login");
+                    }
+                }
+                else
+                {
+                    TempData["error"] = "Login Restricted! Contact admin";
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            else
+            {
+                TempData["error"] = "Invalid Email/Password. Please try again.";
+                return RedirectToAction("Index", "Login");
+            }
+
         }
     }
 }

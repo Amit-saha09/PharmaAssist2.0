@@ -15,31 +15,59 @@ namespace PharmaAssist2._0.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult AdminsManagement()
         {
-            AdminRepository ar = new AdminRepository();
-            var admins = ar.GetAll();
-            return View(admins);
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                AdminRepository ar = new AdminRepository();
+                var admins = ar.GetAll();
+                return View(admins);
+            }
         }
 
         [HttpGet]
         public ActionResult ApproveLoginAdmin(int id)
         {
-            LoginRepository lr = new LoginRepository();
-            lr.UpdateLoginStatus(id, 1);
-            return RedirectToAction("AdminsManagement");
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lr = new LoginRepository();
+                lr.UpdateLoginStatus(id, 1);
+                return RedirectToAction("AdminsManagement");
+            }
         }
 
         [HttpGet]
         public ActionResult RejectLoginAdmin(int id)
         {
-            LoginRepository lr = new LoginRepository();
-            lr.UpdateLoginStatus(id, 2);
-            return RedirectToAction("AdminsManagement");
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lr = new LoginRepository();
+                lr.UpdateLoginStatus(id, 2);
+                return RedirectToAction("AdminsManagement");
+            }        
         }
 
         [HttpGet]
@@ -53,49 +81,92 @@ namespace PharmaAssist2._0.Controllers
         [HttpGet]
         public ActionResult ManagersManagement()
         {
-            ManagerRepository mr = new ManagerRepository();
-            var managers = mr.GetAll();
-            return View(managers);
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                ManagerRepository mr = new ManagerRepository();
+                var managers = mr.GetAll();
+                return View(managers);
+            }          
         }
 
         [HttpGet]
         public ActionResult ApproveLoginManager(int id)
         {
-            LoginRepository lm = new LoginRepository();
-            lm.UpdateLoginStatus(id, 1);
-            return RedirectToAction("ManagersManagement");
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lm = new LoginRepository();
+                lm.UpdateLoginStatus(id, 1);
+                return RedirectToAction("ManagersManagement");
+            }         
         }
 
         [HttpGet]
         public ActionResult RejectLoginManager(int id)
         {
-            LoginRepository lm = new LoginRepository();
-            lm.UpdateLoginStatus(id, 2);
-            return RedirectToAction("ManagersManagement");
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lm = new LoginRepository();
+                lm.UpdateLoginStatus(id, 2);
+                return RedirectToAction("ManagersManagement");
+            }
         }
 
         [HttpGet]
         public ActionResult DoctorsManagement()
         {
-            DoctorRepository dr = new DoctorRepository();
-            var doctors = dr.GetAll();
-            return View(doctors);
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                DoctorRepository dr = new DoctorRepository();
+                var doctors = dr.GetAll();
+                return View(doctors);
+            }
+            
         }
 
         [HttpGet]
         public ActionResult ApproveLoginDoctor(int id)
         {
-            LoginRepository ld = new LoginRepository();
-            ld.UpdateLoginStatus(id, 1);
-            return RedirectToAction("DoctorsManagement");
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository ld = new LoginRepository();
+                ld.UpdateLoginStatus(id, 1);
+                return RedirectToAction("DoctorsManagement");
+            }
         }
 
         [HttpGet]
         public ActionResult RejectLoginDoctor(int id)
         {
-            LoginRepository lm = new LoginRepository();
-            lm.UpdateLoginStatus(id, 2);
-            return RedirectToAction("DoctorsManagement");
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lm = new LoginRepository();
+                lm.UpdateLoginStatus(id, 2);
+                return RedirectToAction("DoctorsManagement");
+            }
         }
     }
 }

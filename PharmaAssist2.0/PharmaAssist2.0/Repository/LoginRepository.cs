@@ -31,6 +31,12 @@ namespace PharmaAssist2._0.Repository
 
             this.Update(user);
         }
+
+        public Login GetUser(Login user)
+        {
+            var p = this.contex.Logins.Where(x => x.Email.Equals(user.Email) && x.Password.Equals(user.Password)).FirstOrDefault();
+            return p;
+        }
     }
 }
     

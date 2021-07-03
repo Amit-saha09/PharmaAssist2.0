@@ -131,6 +131,7 @@
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -424,6 +425,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
+    <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
