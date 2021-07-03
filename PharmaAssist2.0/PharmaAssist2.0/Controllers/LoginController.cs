@@ -51,5 +51,11 @@ namespace PharmaAssist2._0.Controllers
             }
 
         }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }

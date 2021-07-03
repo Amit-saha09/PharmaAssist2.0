@@ -419,6 +419,7 @@
     <Content Include="Views\Admin\ManagersManagement.cshtml" />
     <Content Include="Views\Admin\DoctorsManagement.cshtml" />
     <Content Include="Views\Shared\HomeNavbar.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
