@@ -1,8 +1,25 @@
-﻿@RenderPage("~/Views/Shared/_Layout.cshtml")
-@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<!DOCTYPE html>
 
-<p>Use this area to provide additional information.</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PharmaAssist | About</title>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/all.css" />
+</head>
+<body>
+    @RenderPage("~/Views/Shared/HomeNavbar.cshtml")
+
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <p>Use this area to provide additional information.</p>
+</body>
+</html>
+
+
