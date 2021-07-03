@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
+    <Compile Include="Controllers\DeliveryManController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -163,6 +164,18 @@
     <Compile Include="Migrations\202107021348461_login-admin.designer.cs">
       <DependentUpon>202107021348461_login-admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107031413022_update.cs" />
+    <Compile Include="Migrations\202107031413022_update.designer.cs">
+      <DependentUpon>202107031413022_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107031450339_updatedeliveryman.cs" />
+    <Compile Include="Migrations\202107031450339_updatedeliveryman.designer.cs">
+      <DependentUpon>202107031450339_updatedeliveryman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107031510155_updatedeliveryman2.cs" />
+    <Compile Include="Migrations\202107031510155_updatedeliveryman2.designer.cs">
+      <DependentUpon>202107031510155_updatedeliveryman2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -175,6 +188,7 @@
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\ModelView\DeliveryManZone.cs" />
     <Compile Include="Models\ModelView\DoctorSpecialist.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -190,12 +204,14 @@
     <Compile Include="Repository\AdminRepository.cs" />
     <Compile Include="Repository\BlogCommentRepository.cs" />
     <Compile Include="Repository\BlogPostRepository.cs" />
+    <Compile Include="Repository\DeliveryManRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\ManagerRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\SpecialistRepository.cs" />
+    <Compile Include="Repository\ZoneRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\all.css" />
@@ -421,6 +437,11 @@
     <Content Include="Views\Admin\DoctorsManagement.cshtml" />
     <Content Include="Views\Shared\HomeNavbar.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\DeliveryMan\Index.cshtml" />
+    <Content Include="Views\DeliveryMan\Create.cshtml" />
+    <Content Include="Views\DeliveryMan\Edit.cshtml" />
+    <Content Include="Views\DeliveryMan\Details.cshtml" />
+    <Content Include="Views\DeliveryMan\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -459,6 +480,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107021348461_login-admin.resx">
       <DependentUpon>202107021348461_login-admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107031413022_update.resx">
+      <DependentUpon>202107031413022_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107031450339_updatedeliveryman.resx">
+      <DependentUpon>202107031450339_updatedeliveryman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107031510155_updatedeliveryman2.resx">
+      <DependentUpon>202107031510155_updatedeliveryman2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
