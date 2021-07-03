@@ -418,6 +418,7 @@
     <Content Include="webfonts\fa-brands-400.eot" />
     <Content Include="Views\Admin\ManagersManagement.cshtml" />
     <Content Include="Views\Admin\DoctorsManagement.cshtml" />
+    <Content Include="Views\Shared\HomeNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
