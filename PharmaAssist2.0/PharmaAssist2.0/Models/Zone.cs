@@ -12,8 +12,8 @@ namespace PharmaAssist2._0.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public int? DeliveryManId { get; set; }
-        public virtual DeliveryMen DeliveryMan { get; set; }
+
+        public virtual ICollection<DeliveryMan> DeliveryMens { get; set; }
+
     }
 }

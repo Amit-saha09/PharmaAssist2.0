@@ -128,10 +128,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
+    <Compile Include="Controllers\DeliveryManController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -163,6 +165,30 @@
     <Compile Include="Migrations\202107021348461_login-admin.designer.cs">
       <DependentUpon>202107021348461_login-admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107031413022_update.cs" />
+    <Compile Include="Migrations\202107031413022_update.designer.cs">
+      <DependentUpon>202107031413022_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107031450339_updatedeliveryman.cs" />
+    <Compile Include="Migrations\202107031450339_updatedeliveryman.designer.cs">
+      <DependentUpon>202107031450339_updatedeliveryman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107031510155_updatedeliveryman2.cs" />
+    <Compile Include="Migrations\202107031510155_updatedeliveryman2.designer.cs">
+      <DependentUpon>202107031510155_updatedeliveryman2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107040555141_productupdate.cs" />
+    <Compile Include="Migrations\202107040555141_productupdate.designer.cs">
+      <DependentUpon>202107040555141_productupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107040634089_product.cs" />
+    <Compile Include="Migrations\202107040634089_product.designer.cs">
+      <DependentUpon>202107040634089_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107040718331_productnew.cs" />
+    <Compile Include="Migrations\202107040718331_productnew.designer.cs">
+      <DependentUpon>202107040718331_productnew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -171,11 +197,13 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Consumer.cs" />
-    <Compile Include="Models\DeliveryMen.cs" />
+    <Compile Include="Models\DeliveryMan.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\ModelView\DeliveryManZone.cs" />
     <Compile Include="Models\ModelView\DoctorSpecialist.cs" />
+    <Compile Include="Models\ModelView\ProductCategory.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\PharmaAssistDB.cs" />
@@ -190,17 +218,18 @@
     <Compile Include="Repository\AdminRepository.cs" />
     <Compile Include="Repository\BlogCommentRepository.cs" />
     <Compile Include="Repository\BlogPostRepository.cs" />
-    <Compile Include="Repository\ConsumerRepository.cs" />
-    <Compile Include="Repository\DeliverymenRepository.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\DeliveryManRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\ManagerRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\SpecialistRepository.cs" />
+    <Compile Include="Repository\ZoneRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\javascript\date.js" />
     <Content Include="Content\all.css" />
     <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -424,13 +453,19 @@
     <Content Include="Views\Admin\DoctorsManagement.cshtml" />
     <Content Include="Views\Shared\HomeNavbar.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Admin\ConsumersManagement.cshtml" />
-    <Content Include="Views\Admin\DeliverymensManagement.cshtml" />
+    <Content Include="Views\DeliveryMan\Index.cshtml" />
+    <Content Include="Views\DeliveryMan\Create.cshtml" />
+    <Content Include="Views\DeliveryMan\Edit.cshtml" />
+    <Content Include="Views\DeliveryMan\Details.cshtml" />
+    <Content Include="Views\DeliveryMan\Delete.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\Images\" />
-    <Folder Include="Assets\jQuery\" />
     <Folder Include="Image\" />
     <Folder Include="Views\Logout\" />
   </ItemGroup>
@@ -466,6 +501,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107021348461_login-admin.resx">
       <DependentUpon>202107021348461_login-admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107031413022_update.resx">
+      <DependentUpon>202107031413022_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107031450339_updatedeliveryman.resx">
+      <DependentUpon>202107031450339_updatedeliveryman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107031510155_updatedeliveryman2.resx">
+      <DependentUpon>202107031510155_updatedeliveryman2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107040555141_productupdate.resx">
+      <DependentUpon>202107040555141_productupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107040634089_product.resx">
+      <DependentUpon>202107040634089_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107040718331_productnew.resx">
+      <DependentUpon>202107040718331_productnew.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
