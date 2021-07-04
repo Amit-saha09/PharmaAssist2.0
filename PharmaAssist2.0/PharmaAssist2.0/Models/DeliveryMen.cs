@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PharmaAssist2._0.Models
 {
-    public class DeliveryMan
+    public class DeliveryMen
     {
         [Key]
         public int Id { get; set; }

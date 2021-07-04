@@ -8,9 +8,10 @@ namespace PharmaAssist2._0.Repository
 {
     public class ConsumerRepository : Repository<Consumer>
     {
-        public Consumer GetbyLogin(int id)
+        public List<Consumer> GetAdminsByName(string name)
         {
-            return this.contex.Consumers.Where(x => x.LoginId == id).FirstOrDefault();
+            return this.contex.Consumers.Where(x => x.Name.Contains(name)).ToList();
         }
+
     }
 }
