@@ -12,7 +12,7 @@ namespace PharmaAssist2._0.Repository
         {
            
                var p = this.contex.Logins.Where(x => x.Email == q).FirstOrDefault();
-            return p;
+                return p;
 
 
         }
@@ -36,6 +36,15 @@ namespace PharmaAssist2._0.Repository
         {
             var p = this.contex.Logins.Where(x => x.Email.Equals(user.Email) && x.Password.Equals(user.Password)).FirstOrDefault();
             return p;
+        }
+
+        public List<Login> GetPendings(string usertype)
+        {
+
+            var p = this.contex.Logins.Where(x => x.Type.Equals(usertype) && x.RegistrationStatus == 3).ToList();
+            return p;
+
+
         }
     }
 }

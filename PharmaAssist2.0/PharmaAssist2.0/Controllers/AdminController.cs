@@ -168,5 +168,20 @@ namespace PharmaAssist2._0.Controllers
                 return RedirectToAction("DoctorsManagement");
             }
         }
+
+        [HttpGet]
+        public ActionResult DoctorRegistration()
+        {
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository mr = new LoginRepository();
+                var pendings = mr.GetPendings("Doctor");
+                return View(pendings);
+            }
+        }
     }
 }
