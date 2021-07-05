@@ -178,9 +178,54 @@ namespace PharmaAssist2._0.Controllers
             }
             else
             {
-                LoginRepository mr = new LoginRepository();
-                var pendings = mr.GetPendings("Doctor");
-                return View(pendings);
+                DoctorRepository dr = new DoctorRepository();
+                var doctors = dr.GetAll();
+                return View(doctors);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ApproveDoctorRegistration(int id)
+        {
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lm = new LoginRepository();
+                lm.ApproveUserRegistration(id);
+                return RedirectToAction("DoctorRegistration");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult RejectDoctorRegistration(int id)
+        {
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lm = new LoginRepository();
+                lm.RejectUserUserRegistration(id);
+                return RedirectToAction("DoctorRegistration");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ApproveAllDoctorRegistration()
+        {
+            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                LoginRepository lm = new LoginRepository();
+                lm.AproveAllPendingDoctors();
+                return RedirectToAction("DoctorRegistration");
             }
         }
     }

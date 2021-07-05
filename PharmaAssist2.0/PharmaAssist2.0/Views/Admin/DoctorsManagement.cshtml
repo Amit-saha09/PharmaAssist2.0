@@ -98,7 +98,7 @@
             int serial = 1;
             foreach (var data in Model)
             {
-                if (data.Login.LoginStatus == 1)
+                if (data.Login.LoginStatus == 1 && data.Login.RegistrationStatus == 1)
                 {
                     <div class="card" style="width: 18rem;">
                         <img src="@Url.Content(data.Image)" width="15" height="150" class="card-img-top" alt="DoctorImage">
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 }
-                else
+                else if(data.Login.LoginStatus == 2 && data.Login.RegistrationStatus == 1)
                 {
                     <div class="card" style="width: 18rem;">
                         <img src="@Url.Content(data.Image)" width="15" height="150" class="card-img-top" alt="DoctorImage">
@@ -126,6 +126,7 @@
                         </div>
                     </div>
                 }
+                else{ }
                 serial += 1;
             }
         }
