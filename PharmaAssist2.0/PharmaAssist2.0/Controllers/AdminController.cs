@@ -178,7 +178,7 @@ namespace PharmaAssist2._0.Controllers
             }
             else
             {
-                DeliverymenRepository dmr = new DeliverymenRepository();
+                DeliveryManRepository dmr = new DeliveryManRepository();
                 var deliverymens = dmr.GetAll();
                 return View(deliverymens);
             }

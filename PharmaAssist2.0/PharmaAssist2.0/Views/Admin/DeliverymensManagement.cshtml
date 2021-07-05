@@ -1,10 +1,10 @@
-﻿@model List<PharmaAssist2._0.Models.DeliveryMen>
+﻿@model List<PharmaAssist2._0.Models.Admin>
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>PharmaAssist | Deliverymen Management</title>
+    <title>PharmaAssist | Deliverymans Management</title>
 
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <script src="~/Scripts/bootstrap.min.js"></script>
@@ -19,8 +19,8 @@
     <!--/navbar-->
     <div class="container-fluid" style="padding-top:2vh">
         <div class="form-floating">
-            <input type="text" class="form-control" id="srchBynameTB" placeholder="Deliverymen Name">
-            <label for="floatingInput">Search by Deliverymen Name</label>
+            <input type="text" class="form-control" id="srchBynameTB" placeholder="Admin Name">
+            <label for="floatingInput">Search by Deliveryman Name</label>
         </div>
         <br />
         <div class="container-fluid" align="center"><button type="button" class="btn btn-danger">Print</button></div>
@@ -33,7 +33,6 @@
                     <th scope="col">Email</th>
                     <th scope="col">DOB</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Phone</th>
                     <th scope="col">Salary</th>
                     <th scope="col">Gender</th>
                     <th scope="col">Login Status</th>
@@ -61,7 +60,7 @@
                                 <td>@data.Gender</td>
                                 <td><span style="color:green"><i class="fas fa-check-circle"></i></span></td>
                                 <td>Update</td>
-                                <td>@Html.ActionLink("Restrict", "RejectLoginDeliverymen", new { id = data.Login.Id }, new { @class = "btn btn-danger" })</td>
+                                <td>@Html.ActionLink("Restrict", "RejectLoginDeliveryman", new { id = data.Login.Id }, new { @class = "btn btn-danger" })</td>
                             </tr>
                         }
                         else
@@ -77,7 +76,7 @@
                                 <td>@data.Gender</td>
                                 <td><span style="color:red"><i class="fas fa-times-circle"></i></span></td>
                                 <td>Update</td>
-                                <td>@Html.ActionLink("Allow", "ApproveLoginDeliverymen", new { id = data.Login.Id }, new { @class = "btn btn-success" })</td>
+                                <td>@Html.ActionLink("Allow", "ApproveLoginDeliveryman", new { id = data.Login.Id }, new { @class = "btn btn-success" })</td>
                             </tr>
                         }
                         serial += 1;
