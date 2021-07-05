@@ -101,7 +101,7 @@
                 if (data.Login.LoginStatus == 1)
                 {
                     <div class="card" style="width: 18rem;">
-                        <img src="@Url.Content(data.Image)" class="card-img-top" alt="DoctorImage">
+                        <img src="@Url.Content(data.Image)" width="15" height="150" class="card-img-top" alt="DoctorImage">
                         <div class="card-body">
                             <h5>@serial</h5>
                             <h5 class="card-title">@Html.DisplayFor(modelItem => data.Name)</h5>
@@ -115,7 +115,7 @@
                 else
                 {
                     <div class="card" style="width: 18rem;">
-                        <img src="@Url.Content(data.Image)" class="card-img-top" alt="DoctorImage">
+                        <img src="@Url.Content(data.Image)" width="15" height="150" class="card-img-top" alt="DoctorImage">
                         <div class="card-body">
                             <h5>@serial</h5>
                             <h5 class="card-title">@Html.DisplayFor(modelItem => data.Name)</h5>

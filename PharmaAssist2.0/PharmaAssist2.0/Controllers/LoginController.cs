@@ -31,12 +31,16 @@ namespace PharmaAssist2._0.Controllers
 
                 if (P.Type == "Doctor")
                 {
+                    P.RegistrationStatus = 3;
+                    P.LoginStatus = 2;
                     contex.Insert(P);
                     Session["regemail"] = P.Email.ToString();
                     return RedirectToAction("Create", "Doctor", new { area = "" }); 
                 }
                 else if (P.Type == "Consumer")
                 {
+                    P.RegistrationStatus = 3;
+                    P.LoginStatus = 2;
                     contex.Insert(P);
                     Session["regemail"] = P.Email.ToString();
                     return RedirectToAction("Doctor/Create");
