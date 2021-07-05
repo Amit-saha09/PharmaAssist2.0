@@ -14,7 +14,7 @@ namespace PharmaAssist2._0.Controllers
         // GET: Cart
         public ActionResult Add(Cart cart)
         {
-
+            Session["logged_id"] = 1;
             cart.Totalprice = (cart.Price * cart.Quantity);
             cart.ConsumerId = (int)Session["logged_id"];
             var q = new Cart();
@@ -34,11 +34,19 @@ namespace PharmaAssist2._0.Controllers
         }
         public ActionResult ShowCart()
         {
-            contex.ShowCart((int)Session["logged_id"]);
+            Session["logged_id"] = 1;
 
 
 
-            return RedirectToAction("Index", "Product");
+            return View(contex.ShowCart((int)Session["logged_id"]));
+        }
+        public ActionResult Delete(int id)
+        {
+
+
+            contex.Delete(id);
+
+            return View("ShowCart");
         }
     }
 }
