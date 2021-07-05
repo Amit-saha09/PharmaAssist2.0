@@ -11,10 +11,12 @@ namespace PharmaAssist2._0.Controllers
 {
     public class AdminController : Controller
     {
+        
         // GET: Admin
         [HttpGet]
         public ActionResult Index()
         {
+            
             if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
             {
                 return RedirectToAction("Index", "Login");
@@ -67,7 +69,7 @@ namespace PharmaAssist2._0.Controllers
                 LoginRepository lr = new LoginRepository();
                 lr.UpdateLoginStatus(id, 2);
                 return RedirectToAction("AdminsManagement");
-            }
+            }        
         }
 
         [HttpGet]
@@ -90,7 +92,7 @@ namespace PharmaAssist2._0.Controllers
                 ManagerRepository mr = new ManagerRepository();
                 var managers = mr.GetAll();
                 return View(managers);
-            }
+            }          
         }
 
         [HttpGet]
@@ -105,7 +107,7 @@ namespace PharmaAssist2._0.Controllers
                 LoginRepository lm = new LoginRepository();
                 lm.UpdateLoginStatus(id, 1);
                 return RedirectToAction("ManagersManagement");
-            }
+            }         
         }
 
         [HttpGet]
@@ -136,7 +138,7 @@ namespace PharmaAssist2._0.Controllers
                 var doctors = dr.GetAll();
                 return View(doctors);
             }
-
+            
         }
 
         [HttpGet]
@@ -166,99 +168,6 @@ namespace PharmaAssist2._0.Controllers
                 LoginRepository lm = new LoginRepository();
                 lm.UpdateLoginStatus(id, 2);
                 return RedirectToAction("DoctorsManagement");
-            }
-        }
-
-        [HttpGet]
-        public ActionResult DeliverymensManagement()
-        {
-            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                DeliverymenRepository dmr = new DeliverymenRepository();
-                var deliverymens = dmr.GetAll();
-                return View(deliverymens);
-            }
-
-        }
-
-        [HttpGet]
-        public ActionResult ApproveLoginDeliverymen(int id)
-        {
-            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                LoginRepository ldm = new LoginRepository();
-                ldm.UpdateLoginStatus(id, 1);
-                return RedirectToAction("DeliverymensManagement");
-            }
-        }
-
-        [HttpGet]
-        public ActionResult RejectLoginDeliverymen(int id)
-        {
-            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                LoginRepository lm = new LoginRepository();
-                lm.UpdateLoginStatus(id, 2);
-                return RedirectToAction("DeliverymensManagement");
-            }
-        }
-
-        [HttpGet]
-        public ActionResult ConsumersManagement()
-        {
-            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                ConsumerRepository dc = new ConsumerRepository();
-                var consumers = dc.GetAll();
-                return View(consumers);
-            }
-
-        }
-
-        [HttpGet]
-        public ActionResult ApproveLoginConsumer(int id)
-        {
-            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                LoginRepository ld = new LoginRepository();
-                ld.UpdateLoginStatus(id, 1);
-                return RedirectToAction("ConsumersManagement");
-            }
-        }
-
-        [HttpGet]
-        public ActionResult RejectLoginConsumer(int id)
-        {
-            if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                LoginRepository lm = new LoginRepository();
-                lm.UpdateLoginStatus(id, 2);
-                return RedirectToAction("ConsumersManagement");
-
             }
         }
     }
