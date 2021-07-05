@@ -17,7 +17,10 @@
     <!--navbar-->
     @RenderPage("~/Views/Admin/AdminNavbar.cshtml")
     <!--/navbar-->
+    
     <div class="container-fluid" style="padding-top:2vh">
+        <!--AddModal-->
+        <!--/AddModal-->
         <div class="form-floating">
             <input type="text" class="form-control" id="srchBynameTB" placeholder="Admin Name">
             <label for="floatingInput">Search by Admin Name</label>
@@ -25,7 +28,7 @@
         <br />
         <div class="container-fluid" align="center"><button type="button" class="btn btn-danger">Print</button></div>
         <br />
-        <table class="table table-success table-striped" >
+        <table class="table table-success table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -47,7 +50,7 @@
 
                     foreach (var data in Model)
                     {
-                        if(data.Login.LoginStatus == 1)
+                        if (data.Login.LoginStatus == 1)
                         {
                             <tr>
                                 <th scope="row">@serial</th>
