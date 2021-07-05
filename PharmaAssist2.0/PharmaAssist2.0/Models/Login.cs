@@ -27,6 +27,6 @@ namespace PharmaAssist2._0.Models
         public virtual ICollection<Consumer> Consumers { get; set; }
         public virtual ICollection<ProblemComment> ProblemComments { get; set; }
         public virtual ICollection<BlogComment> BlogComments { get; set; }
-        public virtual ICollection<DeliveryMan> DeliveryMens { get; set; }
+        public virtual ICollection<DeliveryMen> DeliveryMens { get; set; }
     }
 }

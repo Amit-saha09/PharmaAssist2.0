@@ -20,7 +20,7 @@ namespace PharmaAssist2._0.Models
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Consumer> Consumers { get; set; }
-        public DbSet<DeliveryMan> DeliveryMens { get; set; }
+        public DbSet<DeliveryMen> DeliveryMens { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Login> Logins { get; set; }
         public DbSet<Manager> Managers { get; set; }
