@@ -22,7 +22,7 @@ namespace PharmaAssist2._0.Repository
             return p;
         }
 
-        public List<Doctor> GetDoctorsByName(string name)
+        public List<Doctor> GetAdminsByName(string name)
         {
             return this.contex.Doctors.Where(x => x.Name.Contains(name)).ToList();
         }

@@ -12,10 +12,6 @@ namespace PharmaAssist2._0.Repository
         {
             return this.contex.Managers.Where(x => x.Name.Contains(name)).ToList();
         }
-        public Manager GetManagerByEmail(string email)
-        {
-            return this.contex.Managers.Where(x => x.Email.Contains(email)).FirstOrDefault();
-        }
 
     }
 }

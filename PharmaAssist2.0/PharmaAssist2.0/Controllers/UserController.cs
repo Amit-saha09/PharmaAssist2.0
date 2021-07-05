@@ -16,6 +16,7 @@ namespace PharmaAssist2._0.Controllers
         // GET: User
         public ActionResult Index()
         {
+
             return View();
         }
         public ActionResult FindDoctor()
