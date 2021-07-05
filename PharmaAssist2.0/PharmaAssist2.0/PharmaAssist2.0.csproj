@@ -194,6 +194,10 @@
     <Compile Include="Migrations\202107050915596_cart1.designer.cs">
       <DependentUpon>202107050915596_cart1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107051107514_order.cs" />
+    <Compile Include="Migrations\202107051107514_order.designer.cs">
+      <DependentUpon>202107051107514_order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -469,11 +473,11 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Cart\ShowCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
-    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>
@@ -529,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107050915596_cart1.resx">
       <DependentUpon>202107050915596_cart1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051107514_order.resx">
+      <DependentUpon>202107051107514_order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

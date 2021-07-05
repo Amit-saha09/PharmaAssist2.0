@@ -34,11 +34,19 @@ namespace PharmaAssist2._0.Controllers
         }
         public ActionResult ShowCart()
         {
-            contex.ShowCart((int)Session["logged_id"]);
 
 
 
-            return RedirectToAction("Index", "Product");
+            return View(contex.ShowCart((int)Session["logged_id"]));
         }
+
+        public ActionResult Delete(int id)
+        {
+            contex.Delete(id);
+
+
+            return View("ShowCart");
+        }
+
     }
 }
