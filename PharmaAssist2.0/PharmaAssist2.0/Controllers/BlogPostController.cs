@@ -24,7 +24,7 @@ namespace PharmaAssist2._0.Controllers
         [HttpPost]
         public ActionResult Create(BlogPost bp)
         {
-            Session["email"] = "doctor1@gmail.com";
+          Session["email"] = "doctor1@gmail.com";
             string filename = Path.GetFileNameWithoutExtension(bp.Imagefile.FileName);
             string extention = Path.GetExtension(bp.Imagefile.FileName);
             filename = filename + DateTime.Now.ToString("yyssmmfff") + extention;

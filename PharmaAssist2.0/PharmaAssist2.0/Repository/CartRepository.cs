@@ -6,11 +6,11 @@ using System.Web;
 
 namespace PharmaAssist2._0.Repository
 {
-    public class ConsumerRepository : Repository<Consumer>
+    public class CartRepository:Repository<Cart>
     {
-        public Consumer GetbyLogin(int id)
+        public List<Cart> ShowCart(int id)
         {
-            return this.contex.Consumers.Where(x => x.LoginId == id).FirstOrDefault();
+            return this.contex.Carts.Where(x => x.ConsumerId==id).ToList();
         }
     }
 }

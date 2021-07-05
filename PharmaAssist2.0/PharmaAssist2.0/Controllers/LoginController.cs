@@ -108,7 +108,6 @@ namespace PharmaAssist2._0.Controllers
                 {
                     Session["logged_id"] = userFromDB.Id;
                     Session["logged_type"] = userFromDB.Type;
-                    Session["logged_email"] = userFromDB.Email;
 
                     if (Session["logged_type"].Equals("Admin") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
                     {

@@ -11,12 +11,10 @@ namespace PharmaAssist2._0.Controllers
 {
     public class AdminController : Controller
     {
-        
         // GET: Admin
         [HttpGet]
         public ActionResult Index()
         {
-            
             if (Session["logged_id"] == null || Session["logged_type"] == null || !Session["logged_type"].Equals("Admin"))
             {
                 return RedirectToAction("Index", "Login");

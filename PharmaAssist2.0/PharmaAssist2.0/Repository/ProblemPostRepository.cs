@@ -8,5 +8,6 @@ namespace PharmaAssist2._0.Repository
 {
     public class ProblemPostRepository : Repository<ProblemPost>
     {
+
     }
 }

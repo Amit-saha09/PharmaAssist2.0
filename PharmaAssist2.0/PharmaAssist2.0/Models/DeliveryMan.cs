@@ -13,9 +13,9 @@ namespace PharmaAssist2._0.Models
         [Required]
         public string Name { get; set; }
         
-        
+        [Required]
         public int? LoginId { get; set; }
-        
+        [Required]
         public int? ZoneId { get; set; }
 
         [Required]

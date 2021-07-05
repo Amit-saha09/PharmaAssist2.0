@@ -186,8 +186,29 @@
         </div>
     </div>
 
+    <form action="/Cart/Add" method="post">
 
-    @Html.ActionLink("ADD to Cart", "#", new { id = Model.Id }) |
+        <input type="hidden" name="ProductId" value="@Model.Id" />
+        <input type="hidden" name="Name" value="@Model.Name" />
+        <input type="hidden" name="Price" value="@Model.Price" />
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Quantity</label>
+            <div class="col-md-10">
+                <input type="number" name="Quantity" class="form-control" required />
+
+            </div>
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add to Cart" style="background-color:powderblue" class="btn btn-default" />
+        </div>
+
+    </form>
+
+
+  
 
 </body>
 </html>
