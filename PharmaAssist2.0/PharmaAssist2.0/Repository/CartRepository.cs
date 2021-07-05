@@ -12,5 +12,11 @@ namespace PharmaAssist2._0.Repository
         {
             return this.contex.Carts.Where(x => x.ConsumerId==id).ToList();
         }
+        public Cart Check(int id, int ProductId)
+        {
+             var p = new Cart();
+            p = this.contex.Carts.Where(x => x.ConsumerId == id && x.ProductId==ProductId).FirstOrDefault();
+            return p;
+        }
     }
 }

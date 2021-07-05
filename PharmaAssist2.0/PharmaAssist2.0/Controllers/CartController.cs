@@ -14,10 +14,27 @@ namespace PharmaAssist2._0.Controllers
         // GET: Cart
         public ActionResult Add(Cart cart)
         {
+
             cart.Totalprice = (cart.Price * cart.Quantity);
             cart.ConsumerId = (int)Session["logged_id"];
+            var q = new Cart();
+            q = contex.Check(cart.ConsumerId, cart.ProductId);
+            if (q == null)
+            {
+                contex.Insert(cart);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Product");
+            }
 
-            contex.Insert(cart);
+
+
+            return RedirectToAction("Index", "Product");
+        }
+        public ActionResult ShowCart()
+        {
+            contex.ShowCart((int)Session["logged_id"]);
 
 
 

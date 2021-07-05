@@ -223,6 +223,7 @@
     <Compile Include="Repository\AdminRepository.cs" />
     <Compile Include="Repository\BlogCommentRepository.cs" />
     <Compile Include="Repository\BlogPostRepository.cs" />
+    <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\DeliveryManRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
