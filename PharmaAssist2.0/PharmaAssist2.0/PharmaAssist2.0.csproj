@@ -479,6 +479,9 @@
     <Content Include="Views\Consumer\FindDoctor.cshtml" />
     <Content Include="Views\Consumer\Appointment.cshtml" />
     <Content Include="Views\Consumer\ProblemPost.cshtml" />
+    <Content Include="Views\Admin\ConsumerRegistration.cshtml" />
+    <Content Include="Views\Admin\ConsumersManagement.cshtml" />
+    <Content Include="Views\Admin\DeliverymensManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

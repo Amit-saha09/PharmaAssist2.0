@@ -93,9 +93,10 @@ namespace PharmaAssist2._0.Repository
         {
             using (var p2 = new PharmaAssistDB())
             {
-                int e = p2.Database.ExecuteSqlCommand("SELECT IDENT_CURRENT('logins');");
-
-                return e;
+                var loginID = p2.Logins.SqlQuery("SELECT IDENT_CURRENT('logins') AS Id;").ToList<Login>();
+                //int id = p2.Database.ExecuteSqlCommand("SELECT IDENT_CURRENT('logins') AS Id;");
+                int id = loginID[0].Id;
+                return id;
             }
         }
 
@@ -105,6 +106,7 @@ namespace PharmaAssist2._0.Repository
             {
                 user.Id = this.GetLastID() + 1;
                 this.contex.Logins.Add(user);
+                this.contex.SaveChanges();
 
                 var insertedUser = this.GetByEmail(user);
 
