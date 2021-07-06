@@ -22,14 +22,18 @@ namespace PharmaAssist2._0.Models
         public string Phone { get; set; }
         [Required]
         public string Address { get; set; }
-        [Required]
+      
         public string Image { get; set; }
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public HttpPostedFileBase Imagefile { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]
         public int Salary { get; set; }
         [Required]
         public DateTime Dob { get; set; }
+
+       
         public virtual Login Login { get; set; }
     }
 }

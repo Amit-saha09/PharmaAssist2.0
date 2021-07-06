@@ -43,9 +43,10 @@ namespace PharmaAssist2._0.Controllers
                     P.LoginStatus = 2;
                     contex.Insert(P);
                     Session["regemail"] = P.Email.ToString();
-                    return RedirectToAction("Doctor/Create");
+                    return RedirectToAction("Create", "Consumer", new { area = "" });
 
                 }
+                
                 else
                 {
                     ViewData["Email"] = P.Email;
@@ -69,24 +70,22 @@ namespace PharmaAssist2._0.Controllers
                 {
                     return RedirectToAction("Index", "Admin");
                 }
-                /* Redirect To Pages as per user type
-                else if (Session["logged_type"].Equals("Manager"))
-                {
-                    // return RedirectToAction("Method_Name_Here", "Manager");
-                }
                 else if (Session["logged_type"].Equals("Doctor"))
                 {
-                    // return RedirectToAction("Method_Name_Here", "Doctor");
+                     return RedirectToAction("Homepage", "Doctor");
                 }
-                else if (Session["logged_type"].Equals("Deliveryman"))
+                
+                else if (Session["logged_type"].Equals("Manager"))
                 {
-                    // return RedirectToAction("Method_Name_Here", "Deliveryman");
+                    return RedirectToAction("Index", "Manager");
                 }
+               
+                
                 else if (Session["logged_type"].Equals("Consumer"))
                 {
-                    // return RedirectToAction("Method_Name_Here", "Consumer");
+                     return RedirectToAction("Index", "Consumer");
                 }
-                */
+                
                 else
                 {
                     Session.Clear();
@@ -112,29 +111,33 @@ namespace PharmaAssist2._0.Controllers
                 {
                     Session["logged_id"] = userFromDB.Id;
                     Session["logged_type"] = userFromDB.Type;
+                    Session["logged_Email"] = userFromDB.Email;
 
                     if (Session["logged_type"].Equals("Admin") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
                     {
                         return RedirectToAction("Index", "Admin");
                     }
-                    /* Redirect To Pages as per user type
-                    else if (Session["logged_type"].Equals("Manager") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
-                    {
-                        // return RedirectToAction("Method_Name_Here", "Manager");
-                    }
                     else if (Session["logged_type"].Equals("Doctor") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
                     {
-                        // return RedirectToAction("Method_Name_Here", "Doctor");
+                         return RedirectToAction("Homepage", "Doctor");
+
                     }
-                    else if (Session["logged_type"].Equals("Deliveryman") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    else if (Session["logged_type"].Equals("DeliveryMan") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
                     {
-                        // return RedirectToAction("Method_Name_Here", "Deliveryman");
+                         return RedirectToAction("Homepage", "DeliveryMan");
                     }
+                   
+                    else if (Session["logged_type"].Equals("Manager") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
+                    {
+                         return RedirectToAction("Index", "Manager");
+                    }
+                    
+                    
                     else if (Session["logged_type"].Equals("Consumer") && userFromDB.LoginStatus == 1 && userFromDB.RegistrationStatus == 1)
                     {
-                        // return RedirectToAction("Method_Name_Here", "Consumer");
+                         return RedirectToAction("index", "Consumer");
                     }
-                    */
+                   
                     else
                     {
                         Session.Clear();

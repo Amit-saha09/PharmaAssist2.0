@@ -49,19 +49,19 @@
                     {
                         if (data.Login.LoginStatus == 2 && data.Login.RegistrationStatus == 3)
                         {
-                <tr>
-                    <th scope="row">@serial</th>
-                    <td>@data.Name</td>
-                    <td>@data.Specialist.Name</td>
-                    <td>@data.Login.Email</td>
-                    <td>@data.Dob</td>
-                    <td>@data.Address</td>
-                    <td>@data.Phone</td>
-                    <td>@data.Fee</td>
-                    <td>@data.Gender</td>
-                    <td>@Html.ActionLink("Approve", "ApproveDoctorRegistration", new { id = data.Login.Id }, new { @class = "btn btn-success" })</td>
-                    <td>@Html.ActionLink("Reject", "RejectDoctorRegistration", new { id = data.Login.Id }, new { @class = "btn btn-danger" })</td>
-                </tr>
+                            <tr>
+                                <th scope="row">@serial</th>
+                                <td>@data.Name</td>
+                                <td>@data.Specialist.Name</td>
+                                <td>@data.Login.Email</td>
+                                <td>@data.Dob</td>
+                                <td>@data.Address</td>
+                                <td>@data.Phone</td>
+                                <td>@data.Fee</td>
+                                <td>@data.Gender</td>
+                                <td>@Html.ActionLink("Approve", "ApproveDoctorRegistration", new { id = data.Login.Id }, new { @class = "btn btn-success" })</td>
+                                <td>@Html.ActionLink("Reject", "RejectDoctorRegistration", new { id = data.Login.Id }, new { @class = "btn btn-danger" })</td>
+                            </tr>
                         }
 
                         serial += 1;

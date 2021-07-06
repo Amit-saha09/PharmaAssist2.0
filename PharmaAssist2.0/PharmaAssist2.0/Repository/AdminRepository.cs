@@ -29,5 +29,10 @@ namespace PharmaAssist2._0.Repository
             }
         }
 
+        public Admin GetAdmin(int id)
+        {
+            return this.contex.Admins.Where(x => x.Id == id).FirstOrDefault();
+        }
+
     }
 }

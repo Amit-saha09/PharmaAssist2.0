@@ -126,14 +126,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\ConsumerController.cs" />
     <Compile Include="Controllers\DeliveryManController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +198,22 @@
     <Compile Include="Migrations\202107050915596_cart1.designer.cs">
       <DependentUpon>202107050915596_cart1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107051145105_fromlimon.cs" />
+    <Compile Include="Migrations\202107051145105_fromlimon.designer.cs">
+      <DependentUpon>202107051145105_fromlimon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051152353_orderdetails.cs" />
+    <Compile Include="Migrations\202107051152353_orderdetails.designer.cs">
+      <DependentUpon>202107051152353_orderdetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107061715224_adminlimon.cs" />
+    <Compile Include="Migrations\202107061715224_adminlimon.Designer.cs">
+      <DependentUpon>202107061715224_adminlimon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107061809262_limons12345.cs" />
+    <Compile Include="Migrations\202107061809262_limons12345.Designer.cs">
+      <DependentUpon>202107061809262_limons12345.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -232,12 +252,31 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\ManagerRepository.cs" />
+    <Compile Include="Repository\OrderDetailsRepository.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Repository\ProblemPostRepository.cs" />
-    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ProductPostRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\SlotRepository.cs" />
     <Compile Include="Repository\SpecialistRepository.cs" />
     <Compile Include="Repository\ZoneRepository.cs" />
+    <Content Include="Views\Admin\AdminCreate.cshtml" />
+    <Content Include="Views\Admin\AdminUpdate.cshtml" />
+    <Content Include="Views\Admin\ConsumerRegistration.cshtml" />
+    <Content Include="Views\Admin\ConsumersManagement.cshtml" />
+    <Content Include="Views\Admin\DeliverymanCreate.cshtml" />
+    <Content Include="Views\Admin\DeliveryManManagement.cshtml" />
+    <Content Include="Views\Admin\DeliverymanUpdate.cshtml" />
+    <Content Include="Views\Admin\ManagerCreate.cshtml" />
+    <Content Include="Views\Admin\ManagerUpdate.cshtml" />
+    <Content Include="Views\ChangePassword\Index.cshtml" />
+    <None Include="Views\Manager\ManagerNavbar.cshtml" />
+    <Content Include="Views\Consumer\Appointment.cshtml" />
+    <Content Include="Views\Appointment\ConsumerAppointMent.cshtml" />
+    <None Include="Views\Consumer\ConsumerNavbar.cshtml" />
+    <Content Include="Views\Consumer\Edit.cshtml" />
+    <Content Include="Views\Consumer\MyAppointments.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\all.css" />
@@ -475,17 +514,23 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Admin\DoctorRegistration.cshtml" />
+    <Content Include="Views\Cart\ShowCart.cshtml" />
+    <Content Include="Views\Order\MyOrderHistory.cshtml" />
+    <Content Include="Views\Order\MyOrderDetails.cshtml" />
+    <Content Include="Views\Doctor\DoctorNavbar.cshtml" />
+    <Content Include="Views\Doctor\Homepage.cshtml" />
     <Content Include="Views\Consumer\Index.cshtml" />
     <Content Include="Views\Consumer\FindDoctor.cshtml" />
-    <Content Include="Views\Consumer\Appointment.cshtml" />
     <Content Include="Views\Consumer\ProblemPost.cshtml" />
-    <Content Include="Views\Admin\ConsumerRegistration.cshtml" />
-    <Content Include="Views\Admin\ConsumersManagement.cshtml" />
-    <Content Include="Views\Admin\DeliverymensManagement.cshtml" />
+    <Content Include="Views\Consumer\Create.cshtml" />
+    <Content Include="Views\Manager\Create.cshtml" />
+    <Content Include="Views\Appointment\DoctorAppointMent.cshtml" />
+    <Content Include="Views\DeliveryMan\DeliveryManNavbar.cshtml" />
+    <Content Include="Views\Order\Orderlist.cshtml" />
+    <Content Include="Views\DeliveryMan\Homepage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>
@@ -541,6 +586,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107050915596_cart1.resx">
       <DependentUpon>202107050915596_cart1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051145105_fromlimon.resx">
+      <DependentUpon>202107051145105_fromlimon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051152353_orderdetails.resx">
+      <DependentUpon>202107051152353_orderdetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107061715224_adminlimon.resx">
+      <DependentUpon>202107061715224_adminlimon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107061809262_limons12345.resx">
+      <DependentUpon>202107061809262_limons12345.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
