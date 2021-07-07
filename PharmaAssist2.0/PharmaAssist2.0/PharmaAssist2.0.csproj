@@ -214,6 +214,14 @@
     <Compile Include="Migrations\202107061809262_limons12345.Designer.cs">
       <DependentUpon>202107061809262_limons12345.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107061948320_semiboot.cs" />
+    <Compile Include="Migrations\202107061948320_semiboot.Designer.cs">
+      <DependentUpon>202107061948320_semiboot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107070402211_error.cs" />
+    <Compile Include="Migrations\202107070402211_error.Designer.cs">
+      <DependentUpon>202107070402211_error.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -260,6 +268,10 @@
     <Compile Include="Repository\SlotRepository.cs" />
     <Compile Include="Repository\SpecialistRepository.cs" />
     <Compile Include="Repository\ZoneRepository.cs" />
+    <Content Include="Image\appointment.jpg" />
+    <Content Include="Image\find doctor.jpg" />
+    <Content Include="Image\problem solver.jpg" />
+    <Content Include="Image\profile.png" />
     <Content Include="Views\Admin\AdminCreate.cshtml" />
     <Content Include="Views\Admin\AdminUpdate.cshtml" />
     <Content Include="Views\Admin\ConsumerRegistration.cshtml" />
@@ -277,6 +289,8 @@
     <Content Include="Views\Consumer\Edit.cshtml" />
     <Content Include="Views\Consumer\MyAppointments.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Product\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\all.css" />
@@ -598,6 +612,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107061809262_limons12345.resx">
       <DependentUpon>202107061809262_limons12345.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107061948320_semiboot.resx">
+      <DependentUpon>202107061948320_semiboot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107070402211_error.resx">
+      <DependentUpon>202107070402211_error.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
