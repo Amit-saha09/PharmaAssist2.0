@@ -16,6 +16,7 @@ namespace PharmaAssist2._0.Controllers
         ProblemPostRepository bcontext = new ProblemPostRepository();
         DoctorRepository acontext = new DoctorRepository();
         AppointmentRepository ccontext = new AppointmentRepository();
+        LoginRepository log = new LoginRepository();
         // GET: Consumer
         public ActionResult Index()
         {
@@ -46,9 +47,10 @@ namespace PharmaAssist2._0.Controllers
             c.Imagefile.SaveAs(filename);
 
 
-            var x = context.GetConsumerByEmail(Session["regemail"].ToString());
+            var x = log.Getregistared(Session["regemail"].ToString());
             c.LoginId = x.Id;
-            return View(c);
+            context.Insert(c);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

@@ -98,7 +98,7 @@ namespace PharmaAssist2._0.Controllers
                 var log = new LoginRepository();
                 Login lo = new Login();
 
-                lo = log.Getthat(Session["regemail"].ToString());
+                lo = log.Getregistared(Session["regemail"].ToString());
                 doc.LoginId = lo.Id;
                 doc.Email = Session["regemail"].ToString();
                 contex.Insert(doc);
